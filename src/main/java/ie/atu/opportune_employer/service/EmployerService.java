@@ -33,13 +33,13 @@ public class EmployerService {
     }
 
     //Get by ID
-    public Employer getEmployerId(String EmployerId){
-        return employerRepository.findById(EmployerId).orElseThrow(() -> new EmployerNotFoundException("Employer ID not found"));
+    public Employer getEmployerId(long EmployerId){
+        return employerRepository.findByEmployerId(EmployerId).orElseThrow(() -> new EmployerNotFoundException("Employer ID not found"));
     }
 
     //Get by Name
     public @Nullable List<Employer> getByEmployerName(String Employername) {
-        return employerRepository.findByName(Employername);
+        return employerRepository.findByEmployerName(Employername);
     }
 
 }

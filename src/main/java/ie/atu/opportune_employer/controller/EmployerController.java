@@ -4,6 +4,7 @@ package ie.atu.opportune_employer.controller;
 import ie.atu.opportune_employer.model.Employer;
 import ie.atu.opportune_employer.service.EmployerService;
 import jakarta.validation.Valid;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,8 +34,8 @@ public class EmployerController {
     }
 
     // Get one employer
-    @GetMapping()
-    public ResponseEntity<Employer> getById(String id){
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Employer> getById(Long id){
         return ResponseEntity.ok(employerService.getEmployerId(id));
     }
 
