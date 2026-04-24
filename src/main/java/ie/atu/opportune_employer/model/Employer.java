@@ -20,23 +20,25 @@ public class Employer {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     /*EmployerID will only set in this database, JobPosting database should be able to take the employer info and reuse it*/
-    private int EmployerId; // company ID automatically assigned (easy for openfeign to find ID in table).
+    private int employerId; // company ID automatically assigned (easy for openfeign to find ID in table).
 
-    @Email(message = "E-mail required") //company e-mail
-    private String EmployerEmail;
+    @Email(message = "Invalid email") //company e-mail
+    @NotBlank(message = "E-mail is required")
+    private String employerEmail;
 
     @NotBlank(message = "Employer name field empty") //@NotBlank -> not null or whitespace
-    private String EmployerName;
+    private String employerName;
 
-    @NotNull(message = "Location field must be filled") //@NotNull -> just not null
-    private String EmployerLocation;
+    @NotNull(message = "Location required") //@NotNull -> just not null
+    private String employerLocation;
 
-    @NotNull(message = "Industry field must be filled")
-    private String EmployerIndustry;
+    @NotNull(message = "Industry required")
+    private String employerIndustry;
 
     @Min(value = 10) // sets minimum value of 10 digits for phone number
+    @Max(value = 10)
     @PositiveOrZero(message = "Only positive numbers are accepted for contact number") // accepts 0 or greater only
-    private int EmployerPhoneNumber;
+    private int employerPhoneNumber;
 
 
 }

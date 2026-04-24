@@ -25,7 +25,6 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(EmployerConflictException.class)
     public ResponseEntity<String> handleConflict(EmployerConflictException ex){
-
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.CONFLICT);
     }
 

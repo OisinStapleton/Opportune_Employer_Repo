@@ -33,8 +33,8 @@ public class EmployerController {
     }
 
     // Get one employer
-    @GetMapping()
-    public ResponseEntity<Employer> getById(String id){
+    @GetMapping("/{id}")
+    public ResponseEntity<Employer> getById(@PathVariable Integer id){
         return ResponseEntity.ok(employerService.getEmployerId(id));
     }
 
