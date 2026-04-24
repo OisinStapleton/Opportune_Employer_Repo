@@ -1,0 +1,9 @@
+2026-04-24 17:26:35.507178+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EMPLOYER_LOCATION"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EMPLOYER_LOCATION [42001-240]
+2026-04-24 17:32:32.465482+01:00 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EMPLOYER_ID"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EMPLOYER_ID [42001-240]
+2026-04-24 17:32:37.150709+01:00 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]EMPLOYER_EMAIL"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EMPLOYER_EMAIL [42001-240]
