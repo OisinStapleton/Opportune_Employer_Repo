@@ -41,7 +41,7 @@ public class EmployerController {
 
     //Get one by name
     @GetMapping ("/name/{name}")
-    public ResponseEntity<List<Employer>> getByEmployerName(@PathVariable String name){
+    public ResponseEntity<List<Employer>> getByName(@PathVariable String name){
         return ResponseEntity.ok(employerService.getByName(name));
     }
 }
