@@ -7,5 +7,5 @@ import java.util.List;
 
 
 public interface EmployerRepo extends JpaRepository<Employer,Integer> {
-    List<Employer> findByEmployerName(String employerName);
+    List<Employer> findByName(String employerName);
 }

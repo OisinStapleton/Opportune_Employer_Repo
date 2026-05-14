@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employer")
+@RequestMapping("/employers")
 public class EmployerController {
 
     private final EmployerService employerService;
+
     public EmployerController(EmployerService employerService) {
         this.employerService = employerService;
     }
@@ -22,25 +23,25 @@ public class EmployerController {
     //Creation
     @PostMapping
     public ResponseEntity<Employer> create(@Valid @RequestBody Employer employer){
-        Employer saved = employerService.addEmployer(employer);
+        Employer saved = employerService.create(employer);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     // Get all employers
     @GetMapping
     public ResponseEntity<List<Employer>> getAll(){
-        return ResponseEntity.ok(employerService.getAllEmployers());
+        return ResponseEntity.ok(employerService.getAll());
     }
 
     // Get one employer
-    @GetMapping("/{id}")
+    @GetMapping("/employers/{id}")
     public ResponseEntity<Employer> getById(@PathVariable Integer id){
-        return ResponseEntity.ok(employerService.getEmployerId(id));
+        return ResponseEntity.ok(employerService.getById(id));
     }
 
     //Get one by name
     @GetMapping ("/name/{name}")
     public ResponseEntity<List<Employer>> getByEmployerName(@PathVariable String name){
-        return ResponseEntity.ok(employerService.getByEmployerName(name));
+        return ResponseEntity.ok(employerService.getByName(name));
     }
 }

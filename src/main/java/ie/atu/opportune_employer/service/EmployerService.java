@@ -11,33 +11,32 @@ import java.util.List;
 @Service
 public class EmployerService {
 
-    private List<Employer> employers;
-    private final EmployerRepo employerRepository;
+    private final EmployerRepo employerRepo;
 
-    public EmployerService(EmployerRepo employerRepository) {
-        this.employerRepository = employerRepository;
+    public EmployerService(EmployerRepo employerRepo) {
+        this.employerRepo = employerRepo;
     }
 
 
     //Create
-    public Employer addEmployer(Employer employer) {
-        employerRepository.save(employer);
+    public Employer create(Employer employer) {
+        employerRepo.save(employer);
         return employer;
     }
 
     //Get all
-    public List<Employer> getAllEmployers(){
-        return employerRepository.findAll();
+    public List<Employer> getAll(){
+        return employerRepo.findAll();
     }
 
     //Get by ID
-    public Employer getEmployerId(Integer employerId){
-        return employerRepository.findById(employerId).orElseThrow(() -> new EmployerNotFoundException("Employer ID not found"));
+    public Employer getById(Integer id){
+        return employerRepo.findById(id).orElseThrow(() -> new EmployerNotFoundException("Employer ID not found"));
     }
 
     //Get by Name
-    public List<Employer> getByEmployerName(String Employername) {
-        return employerRepository.findByEmployerName(Employername);
+    public List<Employer> getByName(String name) {
+        return employerRepo.findByName(name);
     }
 
 }
